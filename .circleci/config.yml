@@ -1,0 +1,26 @@
+version: 2.1
+jobs:
+  hello:
+    docker:
+      - image: cimg/base:2022.09
+    steps:
+      - checkout
+      - run:
+          name: print hello
+          command: echo hello
+  env:
+    docker:
+      - image: cimg/base:2022.09
+    steps:
+      - checkout
+      - run:
+         name: print env
+         command: echo $test
+workflows:
+  print name_env:
+    jobs:
+      - hello
+      - env:
+         requires:
+           - hello
+         context: test
