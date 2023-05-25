@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: print hello
-          command: echo hello
+          name: list
+          command: ls
   env:
     docker:
       - image: cimg/base:2022.09
