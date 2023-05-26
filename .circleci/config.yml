@@ -2,8 +2,12 @@ version: 2.1
 commands:
   welcome:
     description: "welcome command"
+    parameters:
+      name:
+        type: string
+        default: krishna
     steps:
-      - run: echo "hello Mr."
+      - run: echo "hello Mr. << parameters.name >>"
 jobs:
   hello:
     docker:
@@ -14,20 +18,20 @@ jobs:
       - run:
           name: list
           command: ls
-  env:
-    docker:
-      - image: cimg/base:2022.09
-    steps:
-      - checkout
-      - welcome
-      - run:
-         name: print env
-         command: echo $test
+  # env:
+  #   docker:
+  #     - image: cimg/base:2022.09
+  #   steps:
+  #     - checkout
+  #     - welcome
+  #     - run:
+  #        name: print env
+  #        command: echo $test
 workflows:
   print name_env:
     jobs:
       - hello
-      - env:
-         requires:
-           - hello
-         context: test
+      # - env:
+      #    requires:
+      #      - hello
+      #    context: test
