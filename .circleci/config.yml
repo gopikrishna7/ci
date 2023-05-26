@@ -17,7 +17,9 @@ jobs:
       - welcome
       - run:
           name: list
-          command: ls
+          command: |
+            cd target
+            ls
   # env:
   #   docker:
   #     - image: cimg/base:2022.09
