@@ -3,11 +3,11 @@ commands:
   welcome:
     description: "welcome command"
     parameters:
-      name:
+      username:
         type: string
         default: krishna
     steps:
-      - run: echo "hello Mr. << parameters.name >>"
+      - run: echo "hello Mr. << parameters.username >>"
 jobs:
   hello:
     docker:
