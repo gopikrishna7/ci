@@ -1,10 +1,16 @@
 version: 2.1
+commands:
+  welcome:
+    description: "welcome command"
+    steps:
+      - run: echo "hello Mr."
 jobs:
   hello:
     docker:
       - image: cimg/base:2022.09
     steps:
       - checkout
+      - welcome
       - run:
           name: list
           command: ls
@@ -13,6 +19,7 @@ jobs:
       - image: cimg/base:2022.09
     steps:
       - checkout
+      - welcome
       - run:
          name: print env
          command: echo $test
