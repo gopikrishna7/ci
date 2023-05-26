@@ -5,7 +5,7 @@ commands:
     parameters:
       username:
         type: string
-        default: krishna
+        # default: krishna
     steps:
       - run: echo "hello Mr. << parameters.username >>"
 jobs:
